@@ -3,7 +3,7 @@
 ARCH_CONFIG_PATH=~/workspace/arch-config
 
 # sddm
-cp /usr/share/sddm/themes/breeze/components/WallpaperFader.qml $ARCH_CONFIG_PATH/dm/sddm
+cp /usr/share/sddm/themes/breeze/components/WallpaperFader.qml $ARCH_CONFIG_PATH/dm/sddm/themes/breeze/
 
 # shell
 ## zsh
