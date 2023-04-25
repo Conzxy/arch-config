@@ -10,7 +10,7 @@ cp /usr/share/sddm/themes/breeze/components/WallpaperFader.qml $ARCH_CONFIG_PATH
 cp ~/.zshrc $ARCH_CONFIG_PATH/shell/zsh/
 
 ## bash
-cp ~/.zshrc $ARCH_CONFIG_PATH/shell/bash/
+cp ~/.bashrc $ARCH_CONFIG_PATH/shell/bash/
 
 ## oh-my-posh
 cp ~/.poshthemes/space.omp.json $ARCH_CONFIG_PATH/shell/oh-my-posh/.poshthemes/
@@ -40,11 +40,9 @@ cp -r ~/.vim/plugin/ $ARCH_CONFIG_PATH/nvim
 cp ~/.vimrc $ARCH_CONFIG_PATH/nvim/vimrc
 cp ~/.config/nvim/init.vim $ARCH_CONFIG_PATH/nvim/vimrc
 
-
-# script
-cp -r ~/script/* $ARCH_CONFIG_PATH/script
-
 # software
 ## neovide
 cp -r ~/software/neovide/ $ARCH_CONFIG_PATH/software
 
+# neofetch
+cp ~/.config/neofetch/config.conf $ARCH_CONFIG_PATH/neofetch
