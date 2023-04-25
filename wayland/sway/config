@@ -307,5 +307,5 @@ gaps inner 7
 include /etc/sway/config.d/*
 
 exec_always swww init
-#exec_always --no-startup-id sway-change-bg-random --img-dir=/home/conzxy/Pictures/kuro/bg --period=1s --outputs=HDMI-A-1,eDP-1 1>/dev/null
-exec_always sway-change-bg-random --img-dir=/home/conzxy/Pictures/kuro/bg --period=1s --outputs=HDMI-A-1 1>/dev/null
+# Must use absolute path to specify the user script
+exec_always /home/conzxy/script/sway-change-bg-random --img-dir=/home/conzxy/Pictures/kuro/bg --period=10m --outputs=HDMI-A-1,eDP-1 1>/dev/null
