@@ -283,3 +283,5 @@ export MMKV_BUILD_PATH=~/workspace/mmkv/build
 PATH=$PATH:~/workspace/mmkv/bin
 PATH=$PATH:~/software
 PATH=$PATH:~/software/neovide
+
+alias nv='neovide --neovim-bin=/bin/vi'

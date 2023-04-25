@@ -1,1 +1,2 @@
-/home/conzxy/software/neovide/neovide
+#!/bin/bash
+neovide.out --neovim-bin=/bin/vi
