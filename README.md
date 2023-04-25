@@ -4,3 +4,8 @@
 这是本人ArchLinux的一些配置文件，在此备份。   
 
 ![os_shot](pic/os_shot.png)
+
+## 同步配置文件
+```bash
+./script/sync-config
+```
