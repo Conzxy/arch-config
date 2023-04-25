@@ -1,0 +1,32 @@
+#!/bin/bash
+echo "SSD write performance:"
+for i in {1..3}; do
+  sync
+  dd if=/dev/zero of=/tmp/xx bs=1M count=1024
+  sync
+done
+
+echo -e "\nSSD read performance"
+for i in {1..3}; do
+  sync
+  dd if=/tmp/xx of=/dev/null bs=1M count=1024
+  sync
+done
+
+echo -e "\nHDD read performance"
+for i in {1..3}; do
+  sudo sync
+  sudo dd if=/mobile/tmp of=/dev/null bs=1M count=1024
+  sudo sync
+done
+
+echo -e "\nHDD write performance"
+for i in {1..3}; do
+  sudo sync
+  sudo dd if=/dev/zero of=/mobile/tmp bs=1M count=1024
+  sudo sync
+done
+
+
+sudo rm /mobile/tmp
+rm /tmp/xx

@@ -1,0 +1,2 @@
+#!/bin/sh
+aria2c -j8 -d . $1

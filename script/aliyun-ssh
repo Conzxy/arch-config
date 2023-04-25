@@ -1,0 +1,1 @@
+ssh root@47.99.92.230 -i ~/.ssh/kanon.pem

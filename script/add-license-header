@@ -1,0 +1,44 @@
+#!/bin/python3
+import os
+from os import path
+from sys import argv
+
+def add_license_header_to_file(file_path, license):
+    assert(path.isfile(file_path))
+    # In python, a+'s initial position must in the end of file
+    src_file = open(file_path, "r")
+    header = src_file.readline()
+    if 0 == len(header):
+        src_file.write("// SPDX-LICENSE-IDENTIFIER: {}".format(license))
+    elif -1 == header.find("SPDX-LICENSE-IDENTIFIER"):
+        os.system("sed -i '1i // SPDX-LICENSE-IDENTIFIER: {}' {}".format(license, file_path))
+    
+def add_license_header(dir_path, ext_list, license):
+   dir_entry_names = os.listdir(dir_path) 
+   for dir_entry_name in dir_entry_names:
+       dir_entry_path = path.join(dir_path, dir_entry_name)
+       if path.isfile(dir_entry_path) and dir_entry_name.endswith(ext_list):
+           add_license_header_to_file(dir_entry_path, license)
+       elif path.isdir(dir_entry_path):
+           add_license_header(dir_entry_path, ext_list, license)
+
+if __name__ == '__main__':
+    if len(argv) < 3:
+        print("Usage: {} extensions(split by ,) license dir-paths/file-paths...".format(argv[0]))
+        exit(-1)
+
+    extension_str = argv[1]
+    license = argv[2]
+    paths = argv[3:len(argv)]
+
+    ext_list = extension_str.split(',')
+    for i, ext in enumerate(ext_list):
+        ext_list[i] = ".{}".format(ext)
+        
+    ext_tuple = tuple(ext_list)
+
+    for pat in paths:
+        if path.isfile(pat):
+            add_license_header_to_file(pat, license)
+        elif path.isdir(pat):
+            add_license_header(pat, ext_tuple, license)

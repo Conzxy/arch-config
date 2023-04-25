@@ -1,0 +1,21 @@
+#!/bin/python3
+from sys import argv
+import os
+
+if __name__ == "__main__":
+    if len(argv) < 2: 
+        print("Usage: {} directory-path".format(argv[0]))
+        exit(-1)
+
+    dir_path = argv[1]
+
+    os.chdir(dir_path)
+
+    filenames = os.listdir(dir_path)
+
+    for filename in filenames:
+        ext_pos = filename.rfind('.')
+        if (-1 != ext_pos):
+            new_filename = filename[0:ext_pos]
+            os.rename(filename, new_filename)
+

@@ -1,0 +1,50 @@
+#/bin/bash
+
+ARCH_CONFIG_PATH=~/workspace/arch-config
+
+# sddm
+cp /usr/share/sddm/themes/breeze/components/WallpaperFader.qml $ARCH_CONFIG_PATH/dm/sddm
+
+# shell
+## zsh
+cp ~/.zshrc $ARCH_CONFIG_PATH/shell/zsh/
+
+## bash
+cp ~/.zshrc $ARCH_CONFIG_PATH/shell/bash/
+
+## oh-my-posh
+cp ~/.poshthemes/space.omp.json $ARCH_CONFIG_PATH/shell/oh-my-posh/.poshthemes/
+
+# terminal emulator
+## alacritty
+cp ~/.config/alacritty/alacritty.yml $ARCH_CONFIG_PATH/terminal/alacritty/
+
+## foot
+cp ~/.config/foot/foot.ini $ARCH_CONFIG_PATH/terminal/foot
+
+## kitty
+cp ~/.config/kitty/*.conf $ARCH_CONFIG_PATH/terminal/kitty
+
+# i3
+cp ~/.config/i3/config $ARCH_CONFIG_PATH/i3/
+cp ~/.config/i3/kde_config $ARCH_CONFIG_PATH/i3/
+
+# sway
+cp ~/.config/sway/config $ARCH_CONFIG_PATH/wayland/sway
+
+# waybar
+cp ~/.config/waybar/config $ARCH_CONFIG_PATH/wayland/waybar
+
+# nvim/vim
+cp -r ~/.vim/plugin/ $ARCH_CONFIG_PATH/nvim
+cp ~/.vimrc $ARCH_CONFIG_PATH/nvim/vimrc
+cp ~/.config/nvim/init.vim $ARCH_CONFIG_PATH/nvim/vimrc
+
+
+# script
+cp -r ~/script/* $ARCH_CONFIG_PATH/script
+
+# software
+## neovide
+cp -r ~/software/neovide/ $ARCH_CONFIG_PATH/software
+

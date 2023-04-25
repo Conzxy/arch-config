@@ -1,0 +1,2 @@
+#!/bin/zsh
+echo "$(oh-my-posh --init --shell zsh --config ~/.poshthemes/$1.omp.json)"

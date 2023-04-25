@@ -1,0 +1,8 @@
+let g:DoxygenToolkit_commentType = "C"
+let g:DoxygenToolkit_briefTag_pre="\\brief "
+let g:DoxygenToolkit_paramTag_pre="\\param "
+let g:DoxygenToolkit_returnTag="\\return "
+"let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
+"let g:DoxygenToolkit_blockFooter="----------------------------------------------------------------------------"
+let g:DoxygenToolkit_authorName="Conzxy"
+let g:DoxygenToolkit_licenseTag="Apache-2.0"

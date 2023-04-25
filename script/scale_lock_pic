@@ -1,0 +1,2 @@
+#!/bin/sh
+convert -resize $(xdpyinfo | grep dimensions | cut -d' ' -f7 | cut -dx -f1) $1 $2

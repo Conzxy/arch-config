@@ -1,0 +1,127 @@
+#!/bin/python3
+from os import listdir, system
+from os.path import isfile, join
+from sys import argv
+import time
+import random
+
+def print_usage(proc_name):
+    print("Usage: {} [--outputs=|-o=] [--period=|-p=] [--img-dir=|-d=]\n"
+          "--outputs, -o   monitor outputs list(default: *)\n"
+          "--period,  -p   period time(default: 10m)\n"
+          "--img-dir, -d   The directory store background images you want to change(default: none)\n".format(proc_name))
+
+def parse_period(period: str):
+    value_str = []
+    minu = 0
+    hour = 0
+    sec = 0
+    day = 0
+
+    for c in period:
+        if c.isdigit():
+            value_str.append(c)
+        elif c.isalpha():
+            if 0 == len(value_str):
+                print("Invalid period format")
+                print("eg. 20h3m1s")
+                exit(-1)
+            
+            value = int("".join(value_str))
+            value_str.clear()
+            if 'm' == c:
+                minu = value
+            elif 'h' == c:
+                hour = value
+            elif 's' == c:
+                sec = value
+            elif 'd' == c:
+                day = value
+    
+    ret = day * 86400 + hour * 3600 + minu * 60 + sec
+    if 0 == ret:
+        ret = int(period)
+    return ret
+
+def RR_update_idx(idx: int, bound: int):
+    idx += 1
+    if idx == bound:
+        idx = 0
+    return idx
+
+if __name__ == "__main__":
+    proc_name = argv[0]
+    argv = argv[1:]
+    
+    """
+    Parse the cmd arguments
+    """
+    outputs = []
+    period = parse_period("10m")
+    dir_path = ""
+
+    for arg in argv:
+        separator_pos = arg.find('=')
+        if -1 == separator_pos:
+            print_usage(proc_name)
+            exit(-1)
+        
+        option = arg[:separator_pos]
+        value = arg[separator_pos+1:]
+
+        if "--outputs" == option or "-o" == option:
+            outputs = value.split(',')     
+        elif "--period" == option or "-p" == option:
+            period = parse_period(value)
+        elif "--img-dir" == option or "-d" == option:
+            dir_path = value
+
+    if 0 == len(outputs):
+        outputs.append('*')
+
+    if 0 == len(dir_path):
+        print("ERROR: The --img-dir must be specified")
+        print_usage(proc_name)
+        exit(-1)
+    
+    print("period = {}".format(period))
+
+    dir_entry_names = listdir(dir_path)
+    images = []
+
+    for dir_entry_name in dir_entry_names:
+        dir_entry_path = join(dir_path, dir_entry_name)
+        if isfile(dir_entry_path) and dir_entry_name.endswith((".png", ".jpg", ".jpeg", ".bmp")):
+            images.append(dir_entry_path)
+    
+    transition_types = ["left", "right", "top", "bottom", "wipe", "wave", "grow", "outer"]  
+    transition_pos_list = ["center", "top", "left", "right", "bottom", "top-left", "top-right", "bottom-left", "bottom-right"]
+    transition_type_idxs = []
+    transition_pos_idxs = [] 
+
+    for i in range(0, len(outputs)):
+        transition_type_idxs.append(0)
+        transition_pos_idxs.append(0)
+
+    while True:
+        random.seed(time.time())
+        for idx, output in enumerate(outputs):
+            image_pick_idx = random.randint(0, len(images)-1)
+            transition_step = random.randint(1, 255)
+            transition_type = transition_types[transition_type_idxs[idx]]
+            bg_cmd = "swww img -o {} {} --transition-duration={} --transition-type={} --transition-step={}".format(
+                output, join(dir_path, images[image_pick_idx]), min(3, period),
+                transition_types[transition_type_idxs[idx]], transition_step)
+            transition_type_idxs[idx] = RR_update_idx(transition_type_idxs[idx], len(transition_types))
+            if "grow" == transition_type or "wave" == transition_type:
+                transition_pos = transition_pos_list[transition_pos_idxs[idx]]
+                transition_pos_idxs[idx] = RR_update_idx(transition_pos_idxs[idx], len(transition_pos_list))
+                bg_cmd = "{} --transition-pos={}".format(bg_cmd, transition_pos)
+            if "wipe" == transition_type or "wave" == transition_type:
+                transition_angle = random.randint(0, 360)
+                bg_cmd = "{} --transition-angle={}".format(bg_cmd, transition_angle)
+
+            print(bg_cmd)
+            system(bg_cmd)
+        
+        time.sleep(period)

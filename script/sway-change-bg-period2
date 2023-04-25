@@ -1,0 +1,8 @@
+#!/bin/bash
+ps -e | grep 'swap-change-bg-period2' | awk '{print $1}' | xargs kill -9
+
+while true; do
+  setwall random /home/conzxy/Pictures/kuro/bg/ -c 'sway'
+  sleep $1
+done
+#!/bin/bash

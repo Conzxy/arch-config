@@ -1,0 +1,3 @@
+#!/bin/sh
+cd /mobile/gal/sakura-moyu-cn
+LANG=zh_CN.UTF-8 WINEPREFIX=/home/conzxy/.wine64 wine SakuraChs.exe
