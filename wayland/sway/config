@@ -18,7 +18,7 @@ set $right l
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu wofi --show=drun --lines=15 --prompt=""
+set $menu wofi --show=drun --lines=15 --prompt="" --allow-images
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
