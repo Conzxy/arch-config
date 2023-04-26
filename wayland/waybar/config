@@ -55,8 +55,8 @@
   "mpd": {
       "format": "{artist}-{title} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {elapsedTime:%M:%S}/{totalTime:%M:%S} {stateIcon}",
       "artist-len": 10,
-      "format-disconnected": "Disconnected ",
-      "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+      "format-disconnected": "Disconnected  ",
+      "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped  ",
       "unknown-tag": "N/A",
       "interval": 1,
       "consume-icons": {
@@ -226,7 +226,7 @@
   // "width": 1280, // Waybar width
   "spacing": 0, // Gaps between modules (4px)
   // Choose the order of the modules
-  "modules-left": ["sway/mode", "mpd"],
+  "modules-left": ["mpd", "sway/mode"],
   "modules-center": ["sway/window"],
   "modules-right": ["custom/comic","custom/pictures", "custom/fm", "tray"],
   // Modules configuration
@@ -244,8 +244,8 @@
   "mpd": {
       "format": "{artist}-{title} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {elapsedTime:%M:%S}/{totalTime:%M:%S} {stateIcon}",
       "artist-len": 10,
-      "format-disconnected": "Disconnected ",
-      "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+      "format-disconnected": "Disconnected  ",
+      "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped  ",
       "unknown-tag": "N/A",
       "interval": 1,
       "consume-icons": {
