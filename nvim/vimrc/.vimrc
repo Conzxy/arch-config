@@ -42,6 +42,11 @@ let mapleader = " "
 call plug#begin('~/.vim/plugged')
 " Plug 'folke/noice.nvim'
 " Plug 'MunifTanjim/nui.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'Shatur/neovim-session-manager'
+Plug 'goolord/alpha-nvim'
+Plug 'folke/zen-mode.nvim'
+Plug 'folke/twilight.nvim'
 Plug 'kana/vim-altr'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'mhinz/vim-startify'
@@ -155,9 +160,3 @@ endif
 "
 
 
-if exists("g:neovide")
-  set guifont=Iosevka\ Nerd\ Font:h17
-  let g:neovide_cursor_vfx_mode = "sonicboom"
-  let g:neovide_transparency = 0.8
-  let g:transparency = 0.4
-endif
