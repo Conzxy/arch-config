@@ -1,6 +1,7 @@
 #/bin/bash
 
 ARCH_CONFIG_PATH=~/workspace/arch-config
+CONFIG_PATH=~/.config
 
 # sddm
 cp /usr/share/sddm/themes/breeze/components/WallpaperFader.qml $ARCH_CONFIG_PATH/dm/sddm/themes/breeze/
@@ -46,3 +47,11 @@ cp -r ~/software/neovide/ $ARCH_CONFIG_PATH/software
 
 # neofetch
 cp ~/.config/neofetch/config.conf $ARCH_CONFIG_PATH/neofetch
+
+# fm
+## vifm
+cp $CONFIG_PATH/vifm/vifmrc $ARCH_CONFIG_PATH/fm/vifm/
+
+## ranger
+cp $CONFIG_PATH/ranger/* $ARCH_CONFIG_PATH/fm/ranger/ 2>/dev/null
+cp $CONFIG_PATH/ranger/colorschemes/*.py $ARCH_CONFIG_PATH/fm/ranger/colorschemes
