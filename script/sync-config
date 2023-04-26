@@ -55,3 +55,7 @@ cp $CONFIG_PATH/vifm/vifmrc $ARCH_CONFIG_PATH/fm/vifm/
 ## ranger
 cp $CONFIG_PATH/ranger/* $ARCH_CONFIG_PATH/fm/ranger/ 2>/dev/null
 cp $CONFIG_PATH/ranger/colorschemes/*.py $ARCH_CONFIG_PATH/fm/ranger/colorschemes
+
+# music
+## mpd
+cp -r $CONFIG_PATH/mpd/* $ARCH_CONFIG_PATH/music/mpd/
