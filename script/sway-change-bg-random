@@ -102,7 +102,7 @@ if __name__ == "__main__":
     for i in range(0, len(outputs)):
         transition_type_idxs.append(0)
         transition_pos_idxs.append(0)
-
+    
     while True:
         random.seed(time.time())
         for idx, output in enumerate(outputs):
@@ -123,5 +123,7 @@ if __name__ == "__main__":
 
             print(bg_cmd)
             system(bg_cmd)
-        
+
+        if 0 == period:
+            exit(0)
         time.sleep(period)
