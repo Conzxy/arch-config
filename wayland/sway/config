@@ -308,4 +308,4 @@ include /etc/sway/config.d/*
 
 exec swww init
 # Must use absolute path to specify the user script
-exec /home/conzxy/script/sway-change-bg-random --img-dir=/home/conzxy/Pictures/kuro/bg --period=10m --outputs=HDMI-A-1,eDP-1 1>/dev/null
+exec /home/conzxy/script/sway-change-bg-random --img-dir=/home/conzxy/Pictures/sakura-moyu/bg --period=30m --outputs=HDMI-A-1,eDP-1 1>/dev/null
