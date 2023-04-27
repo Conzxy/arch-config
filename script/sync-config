@@ -30,8 +30,16 @@ cp ~/.config/kitty/*.conf $ARCH_CONFIG_PATH/terminal/kitty
 cp ~/.config/i3/config $ARCH_CONFIG_PATH/i3/
 cp ~/.config/i3/kde_config $ARCH_CONFIG_PATH/i3/
 
-# sway
+## polybar
+cp $CONFIG_PATH/polybar/*.ini $ARCH_CONFIG_PATH/i3/polybar
+cp $CONFIG_PATH/polybar/*.sh $ARCH_CONFIG_PATH/i3/polybar
+
+#wayland
+## sway
 cp ~/.config/sway/config $ARCH_CONFIG_PATH/wayland/sway
+
+## wofi
+cp $CONFIG_PATH/wofi/* $ARCH_CONFIG_PATH/wayland/wofi
 
 # waybar
 cp ~/.config/waybar/config $ARCH_CONFIG_PATH/wayland/waybar
@@ -41,10 +49,14 @@ cp -r ~/.vim/plugin/ $ARCH_CONFIG_PATH/nvim
 cp ~/.vimrc $ARCH_CONFIG_PATH/nvim/vimrc
 cp ~/.config/nvim/init.vim $ARCH_CONFIG_PATH/nvim/vimrc
 cp $CONFIG_PATH/nvim/lua/* $ARCH_CONFIG_PATH/nvim/lua
+cp $CONFIG_PATH/nvim/coc-settings.json $ARCH_CONFIG_PATH/nvim/
 
 # software
 ## neovide
 cp -r ~/software/neovide/ $ARCH_CONFIG_PATH/software
+
+## todoman
+cp $CONFIG_PATH/todoman/config.py $ARCH_CONFIG_PATH/software/todoman/
 
 # neofetch
 cp ~/.config/neofetch/config.conf $ARCH_CONFIG_PATH/neofetch
@@ -61,3 +73,12 @@ cp $CONFIG_PATH/ranger/colorschemes/*.py $ARCH_CONFIG_PATH/fm/ranger/colorscheme
 ## mpd
 cp $CONFIG_PATH/mpd/mpd.conf $ARCH_CONFIG_PATH/music/mpd/
 cp -r $CONFIG_PATH/mpd/playlists $ARCH_CONFIG_PATH/music/mpd
+
+# git
+## git-cliff
+cp $CONFIG_PATH/git-cliff/cliff.toml $ARCH_CONFIG_PATH/git/git-cliff/
+
+# download
+## aria2
+cp $CONFIG_PATH/aria2/aria2.conf $ARCH_CONFIG_PATH/download/aria2/
+
