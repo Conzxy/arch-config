@@ -59,4 +59,5 @@ cp $CONFIG_PATH/ranger/colorschemes/*.py $ARCH_CONFIG_PATH/fm/ranger/colorscheme
 
 # music
 ## mpd
-cp -r $CONFIG_PATH/mpd/* $ARCH_CONFIG_PATH/music/mpd/
+cp $CONFIG_PATH/mpd/mpd.conf $ARCH_CONFIG_PATH/music/mpd/
+cp -r $CONFIG_PATH/mpd/playlists $ARCH_CONFIG_PATH/music/mpd
