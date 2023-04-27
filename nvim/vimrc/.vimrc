@@ -1,5 +1,6 @@
 if has("syntax")
   syntax on
+
 endif
 
 set ft=c.doxygen
@@ -40,21 +41,24 @@ set expandtab
 let mapleader = " "
 
 call plug#begin('~/.vim/plugged')
-" Plug 'folke/noice.nvim'
-" Plug 'MunifTanjim/nui.nvim'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'nvim-telescope/telescope-ui-select.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'rcarriga/nvim-notify'
+Plug 'folke/noice.nvim'
+Plug 'MunifTanjim/nui.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'Shatur/neovim-session-manager'
-Plug 'goolord/alpha-nvim'
+" Plug 'goolord/alpha-nvim'
+" Plug 'nvimdev/dashboard-nvim'
 Plug 'folke/zen-mode.nvim'
 Plug 'folke/twilight.nvim'
 Plug 'kana/vim-altr'
 Plug 'vim-scripts/DoxygenToolkit.vim'
-Plug 'mhinz/vim-startify'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'romgrk/barbar.nvim'
 Plug 'skywind3000/vim-terminal-help'
-Plug 'navarasu/onedark.nvim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ferrine/md-img-paste.vim'
 Plug 'liuchengxu/vista.vim'
@@ -64,21 +68,26 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'tpope/vim-commentary'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
-Plug 'rakr/vim-one'
 Plug 'Yggdroot/LeaderF'
 Plug 'Yggdroot/indentLine'
 Plug 'skywind3000/vim-preview'
 Plug 'tpope/vim-fugitive'
-Plug 'kien/rainbow_parentheses.vim'
-Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'morhetz/gruvbox'
-Plug 'junegunn/vim-easy-align'
 Plug 'skywind3000/gutentags_plus'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/asynctasks.vim'
 Plug 'skywind3000/asyncrun.vim'
-Plug 'Mofiqul/vscode.nvim'
 
+" Plug 'junegunn/vim-easy-align'
+" Plug 'Mofiqul/vscode.nvim'
+Plug 'mhinz/vim-startify'
+" Plug 'navarasu/onedark.nvim'
+" Plug 'rakr/vim-one'
+
+" alpha.nvim requires this
+Plug 'kien/rainbow_parentheses.vim'
+
+" Plug 'octol/vim-cpp-enhanced-highlight'
 " Plug 'majutsushi/tagbar'
 " Plug 'godlygeek/tabular'
 " Plug 'plasticboy/vim-markdown'
@@ -157,6 +166,4 @@ if (empty($TMUX))
   endif
 endif
 " edit indent/number/...
-"
-
-
+let g:vimsyn_embed = 'l'

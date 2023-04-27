@@ -1,7 +1,7 @@
 if has('nvim')
 
 lua << EOF
-  require('neovide_config')
+  require('noice_config')
 EOF
 
 endif

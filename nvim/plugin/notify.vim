@@ -1,7 +1,5 @@
 if has('nvim')
-
 lua << EOF
-  require('neovide_config')
+  require('notify_config')
 EOF
-
 endif

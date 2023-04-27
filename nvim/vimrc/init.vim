@@ -20,4 +20,5 @@ vim.api.nvim_create_autocmd('BufWinLeave', {
     end
   end
 })
+
 EOF
