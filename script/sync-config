@@ -40,6 +40,7 @@ cp ~/.config/waybar/config $ARCH_CONFIG_PATH/wayland/waybar
 cp -r ~/.vim/plugin/ $ARCH_CONFIG_PATH/nvim
 cp ~/.vimrc $ARCH_CONFIG_PATH/nvim/vimrc
 cp ~/.config/nvim/init.vim $ARCH_CONFIG_PATH/nvim/vimrc
+cp $CONFIG_PATH/nvim/lua/* $ARCH_CONFIG_PATH/nvim/lua
 
 # software
 ## neovide
