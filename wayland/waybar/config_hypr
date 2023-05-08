@@ -8,11 +8,11 @@
   // "width": 1280, // Waybar width
   "spacing": 0, // Gaps between modules (4px)
   // Choose the order of the modules
-  "modules-left": ["sway/workspaces"],
+  "modules-left": ["wlr/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["custom/pacman", "pulseaudio", "network", "disk#root", "disk", "cpu", "memory", "battery", "battery#bat2"],
+  "modules-right": ["custom/pacman", "pulseaudio", "network", "disk#root", "disk", "cpu", "memory", "keyboard-state", "battery"],
   // Modules configuration
-  "sway/workspaces": {
+  "wlr/workspaces": {
       "disable-scroll": true,
       "all-outputs": false,
       "format": "{name}: {icon}",
@@ -27,18 +27,20 @@
           "8": " ",
           "9": " ",
           "0": " ",
+          "10": " ",
           "urgent": " ",
           "focused": " ",
           "default": " "
-      }
+      },
+      /* "on-click": "hyprland dispatch workspace ", */
   },
   "keyboard-state": {
-      // "numlock": true,
+      "numlock": true,
       "capslock": true,
       "format": "{name} {icon}",
       "format-icons": {
-          "locked": " ",
-          "unlocked": " "
+          "locked": "",
+          "unlocked": ""
       }
   },
   "sway/mode": {
@@ -48,7 +50,7 @@
   "sway/scratchpad": {
       "format": "{icon} {count}",
       "show-empty": false,
-      "format-icons": ["", " "],
+      "format-icons": ["", ""],
       "tooltip": true,
       "tooltip-format": "{app}: {title}"
   },
@@ -166,7 +168,7 @@
       "format-alt": "{ifname}: {ipaddr}/{cidr}"
   },
   "pulseaudio": {
-      // "scroll-step": 1, // %, can be a float
+      "scroll-step": 1, // %, can be a float
       "format": "{volume}% {icon}",
       "format-bluetooth": "{volume}% {icon}",
       "format-bluetooth-muted": " {icon}",
@@ -226,24 +228,19 @@
   // "width": 1280, // Waybar width
   "spacing": 0, // Gaps between modules (4px)
   // Choose the order of the modules
-  "modules-left": ["custom/media", "sway/mode"],
-  "modules-center": ["sway/window"],
-  "modules-right": ["custom/comic","custom/pictures", "custom/fm", "keyboard-state", "tray"],
+  "modules-left": ["mpd"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": ["custom/comic","custom/pictures", "custom/fm", "tray"],
   // Modules configuration
-  "keyboard-state": {
-      // "numlock": true,
-      "capslock": true,
-      "format": "{name} {icon}",
-      "format-icons": {
-          "locked": " ",
-          "unlocked": " "
-      }
-  },
   "sway/window": {
     "format": "{app_id}({shell}): {title}",
     "max-length": 100,
     "icon": true,
     "all-outputs": true
+  },
+  "hyprland/window": {
+    "format": "window: {}",
+    "separate-outputs": true
   },
   "sway/mode": {
       /* "format": "<span style=\"italic\">{}</span>" */
@@ -298,18 +295,6 @@
     "format": " ",
     "on-click": "geeqie /mobile/comic",
     "tooltip": false
-  },
-  "custom/media": {
-      "format": "{icon} {}",
-      // "format": "{artist}-{title} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {elapsedTime:%M:%S}/{totalTime:%M:%S} {stateIcon}",
-      "escape": true,
-      "return-type": "json",
-      "max-length": 200,
-      "on-click": "playerctl play-pause",
-      "on-click-right": "playerctl stop",
-      "on-scroll-up": "playerctl previous",
-      "on-scroll-down": "playerctl next",
-      "exec": "mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
   }
 }
 ]
