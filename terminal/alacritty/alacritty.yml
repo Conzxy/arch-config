@@ -101,9 +101,13 @@ font:
   normal:
     # family: UbuntuMono Nerd font
     # family: Iosevka Term SS12
-    family: Iosevka Nerd Font Mono Medium
-    # family:  FantasqueSansMono Nerd Font
+    # family: Iosevka Nerd Font Mono Medium
+    # family: FantasqueSansMono Nerd Font
     # family: SourceCodePro
+    # family: FiraCode Nerd Font Med
+    # family: DejavuSansM Nerd Mono
+    family: Inconsolata Nerd Font
+    # family: LigaConsolas Nerd Font
     style: Regular
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -136,7 +140,7 @@ font:
     #style: Bold Italic
 
   #Point size
-  size: 16
+  size: 19
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
   #offset:
