@@ -284,4 +284,23 @@ PATH=$PATH:~/workspace/mmkv/bin
 PATH=$PATH:~/software
 PATH=$PATH:~/software/neovide
 
-alias nv='neovide --neovim-bin=/bin/vi'
+alias n='neofetch'
+alias c='clear'
+alias q='exit'
+alias download-torrent='aria2c --bt-metadata-only=true --bt-save-metadata=true -j$(nproc) -d .'
+
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
+n
+# echo ' \e[H\e[2J
+#            \e[1;36m.
+#           \e[1;36m/#\
+#          \e[1;36m/###\       Welcome the Conzxy's Terminal!
+#         \e[1;36m/p^###\      I Love the Arch Linux! \e[0;37m
+#        \e[1;36m/##P^q##\    
+#       \e[1;36m/##(   )##\   
+#      \e[1;36m/###P   q#,^\
+#     \e[1;36m/P^         ^q\ \e[0;37m'
+# echo "Welcome the Conzxy's Terminal!" | lolcat
+#echo "Pacman Updates: $(pacman -Qu | wc -l)" | lolcat
+#echo "AUR Updates: $(yay -Qau | wc -l)" | lolcat
