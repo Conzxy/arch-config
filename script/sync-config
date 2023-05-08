@@ -7,6 +7,12 @@ CONFIG_PATH=~/.config
 cp /usr/share/sddm/themes/breeze/components/WallpaperFader.qml $ARCH_CONFIG_PATH/dm/sddm/themes/breeze/
 
 # shell
+cp /etc/profile $ARCH_CONFIG_PATH/shell/
+
+## fbterm
+## This is a frame buffer shell environement to replaca linux shell
+cp ~/.fbtermrc $ARCH_CONFIG_PATH/shell/
+
 ## zsh
 cp ~/.zshrc $ARCH_CONFIG_PATH/shell/zsh/
 
@@ -15,6 +21,9 @@ cp ~/.bashrc $ARCH_CONFIG_PATH/shell/bash/
 
 ## oh-my-posh
 cp ~/.poshthemes/space.omp.json $ARCH_CONFIG_PATH/shell/oh-my-posh/.poshthemes/
+
+## tmux
+cp ~/.tmux.conf $ARCH_CONFIG_PATH/shell/tmux/
 
 # terminal emulator
 ## alacritty
@@ -41,22 +50,30 @@ cp ~/.config/sway/config $ARCH_CONFIG_PATH/wayland/sway
 ## wofi
 cp $CONFIG_PATH/wofi/* $ARCH_CONFIG_PATH/wayland/wofi
 
-# waybar
+## waybar
 cp ~/.config/waybar/config $ARCH_CONFIG_PATH/wayland/waybar
+cp ~/.config/waybar/config_hypr $ARCH_CONFIG_PATH/wayland/waybar
+
+## hyprland
+cp ~/.config/hypr/hyprland.conf $ARCH_CONFIG_PATH/wayland/hyprland
 
 # nvim/vim
 cp -r ~/.vim/plugin/ $ARCH_CONFIG_PATH/nvim
+cp -r ~/.vim/discard/ $ARCH_CONFIG_PATH/nvim
 cp ~/.vimrc $ARCH_CONFIG_PATH/nvim/vimrc
 cp ~/.config/nvim/init.vim $ARCH_CONFIG_PATH/nvim/vimrc
 cp $CONFIG_PATH/nvim/lua/* $ARCH_CONFIG_PATH/nvim/lua
 cp $CONFIG_PATH/nvim/coc-settings.json $ARCH_CONFIG_PATH/nvim/
 
 # software
-## neovide
-cp -r ~/software/neovide/ $ARCH_CONFIG_PATH/software
-
 ## todoman
 cp $CONFIG_PATH/todoman/config.py $ARCH_CONFIG_PATH/software/todoman/
+
+## goneovim
+cp ~/.config/goneovim/settings.toml $ARCH_CONFIG_PATH/software/goneovim/
+
+## nvim-qt
+cp ~/.config/nvim-qt/nvim-qt.conf $ARCH_CONFIG_PATH/software/nvim-qt/
 
 # neofetch
 cp ~/.config/neofetch/config.conf $ARCH_CONFIG_PATH/neofetch
@@ -73,6 +90,9 @@ cp $CONFIG_PATH/ranger/colorschemes/*.py $ARCH_CONFIG_PATH/fm/ranger/colorscheme
 ## mpd
 cp $CONFIG_PATH/mpd/mpd.conf $ARCH_CONFIG_PATH/music/mpd/
 cp -r $CONFIG_PATH/mpd/playlists $ARCH_CONFIG_PATH/music/mpd
+
+## mpDris2
+cp $CONFIG_PATH/mpDris2/mpDris2.conf $ARCH_CONFIG_PATH/music/mpDris2
 
 # git
 ## git-cliff

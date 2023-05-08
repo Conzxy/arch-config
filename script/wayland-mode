@@ -1,0 +1,15 @@
+#!/bin/bash
+
+LOCKER='swaylock -i /home/conzxy/Pictures/shinku/lock_pic.png -e -f -t && sleep 1'
+
+if [ $1 == "suspend" ]; then
+  bash -c "$LOCKER" && systemctl suspend
+elif [ $1 == "lock" ]; then
+  bash -c "$LOCKER"
+elif [ $1 == "logout" ]; then
+  swaymsg exit;
+elif [ $1 == "hibernate" ]; then
+  bash -c "$LOCKER" && systemctl hibernate
+elif [ $1 == "reboot" ]; then
+  systemctl reboot
+fi

@@ -1,0 +1,36 @@
+#!/bin/python3
+import requests
+import re
+from urllib import parse
+import os
+
+class BaiduImageSpider(object):
+    def __init__(self):
+        self.url = 'https://shinymas.net/illust/rinze'
+        self.headers = {'User-Agent':'Mozilla/4.0'}
+
+    # 获取图片
+    def fetch_image_urls(self,url):
+        #使用 requests模块得到响应对象
+        res= requests.get(url,headers=self.headers)
+        res.encoding="utf-8"
+        html=res.text
+
+        pattern = re.compile('href="(.*\\.png)"')
+        img_urls = pattern.findall(html)
+        img_urls = list(dict.fromkeys(img_urls))
+        
+        for i, _ in enumerate(img_urls):
+            img_urls[i] += '\n'
+
+        print(img_urls)
+        url_txt_file = open("img_urls.txt", 'wt')
+        url_txt_file.writelines(img_urls)
+        
+    # 入口函数 
+    def run(self):
+        self.fetch_image_urls(self.url)
+
+if __name__ == '__main__':
+    spider = BaiduImageSpider()
+    spider.run()
