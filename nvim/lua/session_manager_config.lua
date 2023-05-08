@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd({ 'User' }, {
   pattern = "SessionLoadPost",
   group = config_group,
   callback = function()
-    require('nvim-tree.api').tree.toggle({current_window = false, find_file=true,focus=false}) require'bufferline.api'.set_offset(31, 'FileTree')
+    require('nvim-tree.api').tree.toggle({update_root=true, current_window = false, find_file=true,focus=false}) require'bufferline.api'.set_offset(31, 'FileTree')
   end,
 })
 

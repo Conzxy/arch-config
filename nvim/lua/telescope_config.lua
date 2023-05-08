@@ -1,4 +1,4 @@
-require("telescope").load_extension("notify")
+-- require("telescope").load_extension("notify")
 -- This is your opts table
 require("telescope").setup {
   extensions = {

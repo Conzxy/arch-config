@@ -4,5 +4,6 @@ lua << EOF
   require('telescope_config')
 EOF
 
-map <leader>gf :Telescope git_files<cr>
+noremap <m-g> :Telescope git_files<cr>
+noremap <m-m> :Telescope oldfiles<cr>
 endif

@@ -1,8 +1,12 @@
-let g:Lf_ShortcutF = '<c-p>'
+" let g:Lf_ShortcutF = '<c-p>'
 let g:Lf_ShortcutB = '<m-b>'
 noremap <leader>fr :Leaderf file --regex<cr>
 noremap <leader>fn :Leaderf file --nameOnly<cr>
-noremap <m-m> :Leaderf mru<cr>
+
+if !has('nvim')
+" noremap <m-m> :Leaderf mru<cr>
+endif
+
 noremap <m-l> :Leaderf loclist<cr>
 noremap <m-s> :Leaderf searchHistory<cr>
 noremap <m-c> :Leaderf command<cr>
@@ -23,5 +27,5 @@ let g:Lf_CacheDirectory = expand('~/.vim/cache')
 let g:Lf_ShowRelativePath = 0
 let g:Lf_HideHelp = 1
 let g:Lf_StlColorscheme = 'powerline'
-let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
+let g:Lf_PreviewResult = {'Function':1, 'BufTag':0}
 
