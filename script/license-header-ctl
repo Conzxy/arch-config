@@ -1,0 +1,121 @@
+#!/bin/python3
+import os
+from os import path
+from sys import argv
+
+def print_usage(proc_name):
+    print("Usage: {} operation [OPTIONS] paths\n"
+          "opeartion: - add: Add SPDX license header\n"
+          "           - rm:  Remove SPDX license header\n"
+          "           - help\n"
+          "--ext,     -e   Extensions to scan in directories\n"
+          "--license, -l   The license of SPDX\n"
+          "paths           Allow directory and files\n"
+          "eg. license-header-ctl add --ext=h,cc --license=MIT src version.h"
+          .format(proc_name))
+    exit(-1)
+
+def add_license_header_to_file(file_path, license):
+    assert(path.isfile(file_path))
+    # In python, a+'s initial position must in the end of file
+    src_file = open(file_path, "r+")
+    print("file: {}".format(file_path))
+    header = src_file.readline()
+    if 0 == len(header):
+        src_file.write("// SPDX-LICENSE-IDENTIFIER: {}".format(license))
+    elif -1 == header.find("SPDX-LICENSE-IDENTIFIER"):
+        os.system("sed -i '1i // SPDX-LICENSE-IDENTIFIER: {}' {}".format(license, file_path))
+
+def rm_license_header_from_file(file_path):
+    assert(path.isfile(file_path))
+    # In python, a+'s initial position must in the end of file
+    src_file = open(file_path, "r+")
+    print("file: {}".format(file_path))
+    header = src_file.readline()
+    if -1 != header.find("SPDX-LICENSE-IDENTIFIER"):
+        os.system("sed -i '1d' {}".format(file_path))
+
+def add_license_header(dir_path, ext_list, license):
+   dir_entry_names = os.listdir(dir_path) 
+   for dir_entry_name in dir_entry_names:
+       dir_entry_path = path.join(dir_path, dir_entry_name)
+       if path.isfile(dir_entry_path) and dir_entry_name.endswith(ext_list):
+           add_license_header_to_file(dir_entry_path, license)
+       elif path.isdir(dir_entry_path):
+           add_license_header(dir_entry_path, ext_list, license)
+
+def rm_license_header(dir_path, ext_list):
+   dir_entry_names = os.listdir(dir_path) 
+   for dir_entry_name in dir_entry_names:
+       dir_entry_path = path.join(dir_path, dir_entry_name)
+       if path.isfile(dir_entry_path) and dir_entry_name.endswith(ext_list):
+           rm_license_header_from_file(dir_entry_path)
+       elif path.isdir(dir_entry_path):
+           rm_license_header(dir_entry_path, ext_list)
+
+if __name__ == '__main__':
+    proc_name = argv[0]
+    operation = argv[1]
+    
+    if operation == "help":
+        print_usage(proc_name)
+
+    argv = argv[2:]
+
+    ext_list = []
+    license = ""
+    paths = []
+
+    for arg in argv:
+        option = ""
+        value = ""
+
+        separator_pos = arg.find('=')
+        option=arg[:separator_pos]
+        
+        if not arg.startswith("-"):
+            paths.append(arg)
+            continue
+            
+        if -1 != separator_pos:         
+            value = arg[separator_pos+1:]
+
+        if "--ext" == option or "-e" == option:
+            ext_list = value.split(',')
+            for i, ext in enumerate(ext_list):
+                ext_list[i] = ".{}".format(ext)
+        elif "--license" == option or "-l" == option:
+            license = value
+        else:
+            print_usage(proc_name)
+
+    if len(license) == 0:
+        if operation == "add":
+            print("Requires license: --license|-l")
+            exit(-1)
+
+    if len(ext_list) == 0:
+        print("Rquires extensions: --ext|-e") 
+        exit(-1)
+
+    if len(paths) == 0:
+        print("Requires paths: no option arguments")
+        exit(-1)
+
+    ext_tuple = tuple(ext_list)
+    for pat in paths:
+        if path.isfile(pat):
+            if operation == "add":
+                add_license_header_to_file(pat, license)
+            elif operation == "rm":
+                rm_license_header_from_file(pat)
+            else:
+                print_usage(proc_name)
+
+        elif path.isdir(pat):
+            if operation == "add":
+                add_license_header(pat, ext_tuple, license)
+            elif operation == "rm":
+                rm_license_header(pat, ext_tuple)
+            else:
+                print_usage(proc_name)
