@@ -75,6 +75,9 @@ if __name__ == "__main__":
             period = parse_period(value)
         elif "--img-dir" == option or "-d" == option:
             dir_path = value
+        else:
+            print_usage(proc_name)
+            exit(-1)
 
     if 0 == len(outputs):
         outputs.append('*')
