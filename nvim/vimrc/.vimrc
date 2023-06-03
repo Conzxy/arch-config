@@ -41,6 +41,7 @@ set expandtab
 let mapleader = " "
 
 call plug#begin('~/.vim/plugged')
+Plug 'j-morano/buffer_manager.nvim'
 " Plug 'airblade/vim-gitgutter'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}

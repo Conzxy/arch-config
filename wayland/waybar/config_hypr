@@ -10,7 +10,7 @@
   // Choose the order of the modules
   "modules-left": ["wlr/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["custom/pacman", "pulseaudio", "network", "disk#root", "disk", "cpu", "memory", "keyboard-state", "battery"],
+  "modules-right": ["custom/pacman", "pulseaudio", "network", "disk#root", "disk", "cpu", "memory", "battery"],
   // Modules configuration
   "wlr/workspaces": {
       "disable-scroll": true,
@@ -228,9 +228,9 @@
   // "width": 1280, // Waybar width
   "spacing": 0, // Gaps between modules (4px)
   // Choose the order of the modules
-  "modules-left": ["mpd"],
+  "modules-left": ["custom/media"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["custom/comic","custom/pictures", "custom/fm", "tray"],
+  "modules-right": ["custom/comic","custom/pictures", "custom/fm", "keyboard-state" ,"tray"],
   // Modules configuration
   "sway/window": {
     "format": "{app_id}({shell}): {title}",
@@ -281,6 +281,15 @@
       // "icon-size": 21,
       "spacing": 10
   },
+  "keyboard-state": {
+      // "numlock": true,
+      "capslock": true,
+      "format": "{name} {icon}",
+      "format-icons": {
+          "locked": " ",
+          "unlocked": " "
+      }
+  },
   "custom/pictures": {
     "format": " ",
     "on-click": "gthumb ~/Pictures",
@@ -295,6 +304,18 @@
     "format": " ",
     "on-click": "geeqie /mobile/comic",
     "tooltip": false
+  },
+  "custom/media": {
+      "format": "{icon} {}",
+      // "format": "{artist}-{title} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {elapsedTime:%M:%S}/{totalTime:%M:%S} {stateIcon}",
+      "escape": true,
+      "return-type": "json",
+      "max-length": 200,
+      "on-click": "playerctl play-pause",
+      "on-click-right": "playerctl stop",
+      "on-scroll-up": "playerctl previous",
+      "on-scroll-down": "playerctl next",
+      "exec": "mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
   }
 }
 ]

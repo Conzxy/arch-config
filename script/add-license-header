@@ -6,7 +6,8 @@ from sys import argv
 def add_license_header_to_file(file_path, license):
     assert(path.isfile(file_path))
     # In python, a+'s initial position must in the end of file
-    src_file = open(file_path, "r")
+    src_file = open(file_path, "r+")
+    print("file: {}".format(file_path))
     header = src_file.readline()
     if 0 == len(header):
         src_file.write("// SPDX-LICENSE-IDENTIFIER: {}".format(license))

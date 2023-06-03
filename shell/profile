@@ -72,7 +72,7 @@ if [ "$TERM" = "linux" ]; then
     echo -en "\e]P7ffffff" #lightgrey
     echo -en "\e]PFdedede" #white
   
-    fcitx5 -d 1>/dev/null 2>/dev/null
-    FBTERM=1 exec fbterm --font-size=20 --font-names="Iosevka Nerd Font" --cursor-shape=1 --cursor-interval=500 -i fcitx5-fbterm
+    # fcitx5 -d 1>/dev/null 2>/dev/null
+    # FBTERM=1 exec fbterm --font-size=20 --font-names="Iosevka Nerd Font" --cursor-shape=1 --cursor-interval=500 -i fcitx5-fbterm
 fi
 

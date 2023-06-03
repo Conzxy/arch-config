@@ -39,7 +39,7 @@ HideTitlebar = true
 
 ## This option makes the whole GUI window in semi-transparent.
 ## This setting also implicitly enables the Drawborder setting
-# Transparent = 0.8
+Transparent = 1
 
 ## Launch goneovim with full screen window size.
 # StartFullscreen = false

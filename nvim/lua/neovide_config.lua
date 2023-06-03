@@ -2,7 +2,7 @@
     return string.format("%x", math.floor(255 * vim.g.transparency or 0.8))
   end
   if vim.g.neovide then
-    vim.o.guifont = "Iosevka Nerd font:h16:#h-none"
+    vim.o.guifont = "Inconsolata Nerd Font:h18:#h-none"
     vim.g.neovide_cursor_vfx_mode = "sonicboom"
     vim.g.neovide_cursor_vfx_particle_density = 10.0
     vim.g.neovide_cursor_vfx_particle_speed = 10.0
@@ -14,7 +14,7 @@
     -- for railgun only
     vim.g.neovide_cursor_vfx_particle_curl = 1.0
 
-    vim.g.neovide_transparency = 0.8
+    -- vim.g.neovide_transparency = 0.8
     -- no effect
     vim.g.transparency = 0.4
     vim.g.neovide_background_color = "#0f1117" .. alpha()

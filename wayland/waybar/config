@@ -119,11 +119,11 @@
   "cpu": {
       "format": "{usage}% CPU",
       "tooltip": false,
-      "interval": 5
+      "interval": 60
   },
   "memory": {
       "format": "{}% MEM",
-      "interval": 5
+      "interval": 30 
   },
   "temperature": {
       // "thermal-zone": 2,
@@ -156,13 +156,13 @@
       "bat": "BAT2"
   },
   "network": {
-      "interval": 1,
+      "interval": 5,
       // "interface": "wlp2*", // (Optional) To force the use of this interface
       "format-wifi": "{essid} ({signalStrength}%) {bandwidthUpBytes} {bandwidthDownBytes}   ",
       "format-ethernet": "{bandwidthUpBytes} {bandwidthDownBytes} 󰈀 ",
       "tooltip-format": "{ifname} via {gwaddr} 󰈀 ",
       "format-linked": "{ifname} (No IP) 󰈀 ",
-      "format-disconnected": "Disconnected ⚠",
+      "format-disconnected": "Disconnected ⚠ ",
       "format-alt": "{ifname}: {ipaddr}/{cidr}"
   },
   "pulseaudio": {
@@ -207,12 +207,12 @@
       "tooltip": false,
   },
   "disk#root": {
-    "interval": 30,
+    "interval": 86400,
     "format": "{percentage_used}%/{used}",
     "path": "/"
   },
   "disk": {
-    "interval": 30,
+    "interval": 86400,
     "format": "{percentage_used}%/{used}",
     "path": "/home/conzxy"
   }
@@ -256,7 +256,7 @@
       "format-disconnected": "Disconnected  ",
       "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped  ",
       "unknown-tag": "N/A",
-      "interval": 1,
+      "interval": 5,
       "consume-icons": {
           "on": " "
       },
@@ -305,6 +305,7 @@
       "escape": true,
       "return-type": "json",
       "max-length": 200,
+      "interval": 5,
       "on-click": "playerctl play-pause",
       "on-click-right": "playerctl stop",
       "on-scroll-up": "playerctl previous",

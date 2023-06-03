@@ -1,6 +1,3 @@
-" vim-markdown config
-" let g:markdown_fenced_languages = ['cpp', 'python', 'bash=sh']
-
 " gutentags config(including gutentags_plus)
 " see https://github.com/skywind3000/gutentags_plus
 set tags=./.tags;,.tags

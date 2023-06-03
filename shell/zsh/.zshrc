@@ -254,7 +254,7 @@ alias tsc='tmux switch-client -t'
 alias cdc='coredumpctl'
 # Open a new window in this term's cwd
 
-alias nw="kitty&"
+alias nw="foot&"
 nwZle() { zle push-line; BUFFER="nw"; zle accept-line; }
 zle -N nwZle
 # CTRL+n
@@ -288,9 +288,11 @@ alias n='neofetch'
 alias c='clear'
 alias q='exit'
 alias download-torrent='aria2c --bt-metadata-only=true --bt-save-metadata=true -j$(nproc) -d .'
+alias mmkv-bin='cd ~/mmkv/bin'
 
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
+source /usr/share/autojump/autojump.zsh
 n
 # echo ' \e[H\e[2J
 #            \e[1;36m.

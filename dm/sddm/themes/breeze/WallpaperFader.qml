@@ -31,6 +31,7 @@ Item {
             property: "factor"
             duration: PlasmaCore.Units.veryLongDuration * 2
             easing.type: Easing.InOutQuad
+
         }
     }
     FastBlur {

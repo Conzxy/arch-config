@@ -4,7 +4,7 @@
       "command": "clangd",
        "args": ["--background-index", "--compile-commands-dir=build","-j=2","--query-driver=/usr/bin/clang++","--inlay-hints=false"],
       "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
-      "filetypes": ["c", "cc", "cpp", "c++"]
+      "filetypes": ["c", "cc", "cpp", "c++" ]
     }
   },
   "suggest.enablePreselect": false,
