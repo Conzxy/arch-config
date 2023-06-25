@@ -59,10 +59,10 @@ floating_modifier $mod
 # Alacritty bug:
 # 在另一个显示器上字体大小不统一
 # 通过参数强制矫正
-set $fontSize 15
+set $fontSize 19
 
-bindsym $mod+Shift+Return exec alacritty -o font.size=$fontSize -t "alacritty"
-bindsym $mod+Return exec alacritty -o font.size=$fontSize -t "tilling"
+bindsym $mod+Shift+Return exec alacritty -t "alacritty"
+bindsym $mod+Return exec alacritty -t "tilling"
 
 bindsym $mod+Shift+s exec /home/conzxy/software/st-transparency/st -t "st" -f "Iosevka Term SS12:size=$fontSize" 1>/dev/null 2>&1
 bindsym $mod+Ctrl+s exec /home/conzxy/software/st-transparency/st -t "tilling" -f "Iosevka Term SS12:size=$fontSize" 1>/dev/null 2>&1

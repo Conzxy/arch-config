@@ -24,6 +24,7 @@ set $menu wofi --show=drun --lines=15 --prompt="" --allow-images
 #output * bg /home/conzxy/Pictures/ykn/bg/11.png fill
 #exec_always swaybg -i /home/conzxy/Pictures/ykn/bg/11.png -m fill #exec_always --no-startup-id sway-change-bg-period2 1s #exec_always setwall random ~/Pictures/kuro/bg -c 'sway'
 exec --no-startup-id fcitx5 -d --replace
+exec --no-startup-id mako
 
 font pango:monospace 10
 # default_border none

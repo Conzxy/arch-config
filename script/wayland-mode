@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOCKER='swaylock -i /home/conzxy/Pictures/shinku/lock_pic.png -e -f -t && sleep 1'
+LOCKER='swaylock -i /home/conzxy/Pictures/shiny-colors/linze/bg/rinze_p_sr5.png -e -f -t && sleep 1'
 
 if [ $1 == "suspend" ]; then
   bash -c "$LOCKER" && systemctl suspend
