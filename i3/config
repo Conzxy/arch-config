@@ -55,18 +55,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-#bindsym $mod+Return exec i3-sensible-terminal
-# Alacritty bug:
-# 在另一个显示器上字体大小不统一
-# 通过参数强制矫正
-set $fontSize 19
-
 bindsym $mod+Shift+Return exec alacritty -t "alacritty"
 bindsym $mod+Return exec alacritty -t "tilling"
-
-bindsym $mod+Shift+s exec /home/conzxy/software/st-transparency/st -t "st" -f "Iosevka Term SS12:size=$fontSize" 1>/dev/null 2>&1
-bindsym $mod+Ctrl+s exec /home/conzxy/software/st-transparency/st -t "tilling" -f "Iosevka Term SS12:size=$fontSize" 1>/dev/null 2>&1
-# bindsym $mod+Return exec i3-shell.sh
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -139,13 +129,13 @@ bindsym $mod+c focus child
 # set $ws0 "0"
 set $ws1 "1: code"
 set $ws2 "2: web"
-set $ws3 "3: communication"
+set $ws3 "3: IM"
 set $ws4 "4: note"
-set $ws5 "5: code"
-set $ws6 "6: code"
-set $ws7 "7: media"
-set $ws8 "8: game"
-set $ws9 "9: blog"
+set $ws5 "5: music"
+set $ws6 "6: video"
+set $ws7 "7: docs"
+set $ws8 "8: images"
+set $ws9 "9: game"
 set $ws10 "10: terminal"
 
 # switch to workspace
@@ -245,12 +235,15 @@ bindsym $mod+Shift+p mode "$mode_system"
 bindsym $mod+Ctrl+greater move workspace to output right
 bindsym $mod+Ctrl+less move workspace to output left
 
+set $left_monitor eDP-1
+set $right_monitor HDMI-1
+
 set $monitor_control Monitor Control: (1) HDMI ON, (2) HDMI OFF, (3) eDP ON, (4) eDP OFF
 mode "$monitor_control" {
-  bindsym 1 exec --no-startup-id xrandr --auto --output HDMI-1 --auto --right-of eDP-1, mode "default"
-  bindsym 2 exec --no-startup-id xrandr --output HDMI-1 --off, mode "default"
-  bindsym 3 exec --no-startup-id xrandr --auto --output eDP-1 --auto --left-of HDMI-1, mode "default"
-  bindsym 4 exec --no-startup-id xrandr --output eDP-1 --off, mode "default"
+  bindsym 1 exec --no-startup-id xrandr --auto --output $right_monitor --auto --right-of $left_monitor, mode "default"
+  bindsym 2 exec --no-startup-id xrandr --output $right_monitor --off, mode "default"
+  bindsym 3 exec --no-startup-id xrandr --auto --output $left_monitor --auto --left-of $right_monitor, mode "default"
+  bindsym 4 exec --no-startup-id xrandr --output $left_monitor --off, mode "default"
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
@@ -260,43 +253,7 @@ for_window [title="alacritty$"] floating enable;
 
 bindsym $mod+m mode "$monitor_control"
 
-# Try to kill the wallpaper set by Plasma (it takes up the entire workspace and hides everything)
-
-exec --no-startup-id wmctrl -c Plasma
-for_window [title="桌面 @ QRect(0,0 1920x1080)  — Plasma"] kill; floating enable; border none
-for_window [title="桌面  — Plasma"] kill; floating enable; border none
-for_window [title="桌面 @ QRect.*"] kill; floating enable; border none
-
-
-# Compositor (Animations, Shadows, Transparency)
-exec --no-startup-id picom -cCFb
-
-  for_window [class="yakuake"] floating enable;
-  for_window [class="lattedock"] floating enable;
-  for_window [class="plasmashell"] floating enable;
-  for_window [class="Kmix"] floating enable; border none
-  for_window [class="kruler"] floating enable; border none
-  for_window [class="Plasma"] floating enable; border none
-  for_window [class="Klipper"] floating enable; border none
-  for_window [class="krunner"] floating enable; border none
-  for_window [class="Plasmoidviewer"] floating enable; border none
-  for_window [title="plasma-desktop"] floating enable; border none
-  for_window [class="plasmashell" window_type="notification"] floating enable, border none, move position 1450px 20px
-  no_focus [class="plasmashell" window_type="notification"] 
-
-# >>> Avoid tiling for non-Plasma stuff <<<
-  for_window [window_role="pop-up"] floating enable
-  for_window [window_role="bubble"] floating enable
-  for_window [window_role="task_dialog"] floating enable
-  for_window [window_role="Preferences"] floating enable
-  for_window [window_role="About"] floating enable
-  for_window [window_type="dialog"] floating enable
-  for_window [window_type="menu"] floating enable
-  for_window [instance="__scratchpad"] floating enable
-
 gaps inner 8
 gaps outer 8
 
 # default_border none
-
-# for_window [title="Kuro Software Renderer"] floating enable;
