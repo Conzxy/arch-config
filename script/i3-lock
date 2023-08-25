@@ -1,0 +1,2 @@
+#!/bin/bash
+i3lock -i ~/Pictures/shiny-colors/asahi/asahi_p_ssr3_f.png -e -f -t
