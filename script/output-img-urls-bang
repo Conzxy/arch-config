@@ -1,0 +1,53 @@
+#!/bin/python3
+import requests
+import re
+from sys import argv
+
+member_name = ""
+page_cnt = 1
+
+def fetch_urls(url, headers, regex, output_urls):
+    res= requests.get(url, headers=headers)
+    res.encoding="utf-8"
+    html=res.text
+
+    pattern = re.compile(regex)
+    local_card_urls = pattern.findall(html)
+    local_card_urls = list(dict.fromkeys(local_card_urls))
+    
+    for card_url in local_card_urls:
+        output_urls.append(card_url)
+
+if __name__ == '__main__':
+    if len(argv) < 3:
+        print(f"Usage: {argv[0]} member-name page-count")
+        exit(-1)
+    
+    member_name = argv[1]
+    page_cnt = int(argv[2])
+
+    base_url = f"https://bandori.party/cards/{member_name}/?page="
+    headers = {'User-Agent':'Mozilla/4.0'}
+    card_urls = []
+    for i in range(1, 1+page_cnt):
+        url = f"{base_url}{i}"
+        print(f"url = {url}")
+        fetch_urls(url, headers, 'href="(/card/[0-9]*/[0-9A-Za-z-]+/)"', card_urls)
+    
+    #print(f"count = {len(card_urls)}")
+    #print(card_urls)
+    
+    image_urls = []
+    for card_url in card_urls:
+        fetch_urls("https://bandori.party" + card_url, headers, 'href="(//i.bandori.party/u/c/art/.*.png)"', image_urls)
+    
+    #print(f"image count = {len(image_urls)}")
+    url_txt_file = open("urls.txt", 'wt')
+
+    for i,_ in enumerate(image_urls):
+        image_urls[i] += '\n'
+        image_urls[i] = "https:" + image_urls[i]
+        print(image_urls[i])
+
+    url_txt_file.writelines(image_urls)
+            
