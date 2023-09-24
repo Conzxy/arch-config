@@ -272,15 +272,15 @@ bindsym $mod+Pause mode "$mode_system"
 # 避免有的keyboard layout没有Pause键
 bindsym $mod+Shift+p mode "$mode_system"
 
-set $left_monitor eDP-1
-set $right_monitor HDMI-A-1
+set $left_monitor HDMI-A-1
+set $right_monitor eDP-1
 
-output $left_monitor mode 1920x1080 position 0,0
-output $right_monitor mode 1920x1080 position 1920,0
+output $left_monitor mode 3840x2160 position 0,0 scale 2 transform 90
+#output $right_monitor mode 1920x1080 position 3840,0
 
 set $monitor_control Monitor Control: (1) $right_monitor Toggle, (2) $left_monitor Toggle
 mode "$monitor_control" {
-  bindsym 1 exec --no-startup-id swap output $right_monitor toggle, mode "default"
+  bindsym 1 exec --no-startup-id sway output $right_monitor toggle, mode "default"
   bindsym 2 exec --no-startup-id sway output $left_monitor toggle, mode "default"
   bindsym Return mode "default"
   bindsym Escape mode "default"
@@ -305,12 +305,11 @@ gaps inner 7
 
 include /etc/sway/config.d/*
 
-#exec_always swaybg -i /home/conzxy/Pictures/emoji/momoga9.png -m fill
+exec_always swaybg -i /home/conzxy/Pictures/BanG/Tomori/bg/4290Tomori-Takamatsu-Pure-The-Cries-of-My-Heart-Rcb3vO.png -m fill
 exec swww init
 # Must use absolute path to specify the user script
 #exec /home/conzxy/script/sway-change-bg-random --img-dir=/home/conzxy/Pictures/sakura-moyu/bg --period=30m --outputs=HDMI-A-1,eDP-1 1>/dev/null
-exec /home/conzxy/script/sway-change-bg-random --img-dir=/home/conzxy/Pictures/shiny-colors/linze/bg --period=30m --outputs=HDMI-A-1,eDP-1 1>/dev/null
-
+# exec /home/conzxy/script/sway-change-bg-random --img-dir=/home/conzxy/Pictures/shiny-colors/linze/bg --period=30m --outputs=HDMI-A-1 1>/dev/null
 
 # exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov -t 500
 

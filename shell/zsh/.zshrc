@@ -246,6 +246,7 @@ function wine64-on {
 }
 
 export PATH=~/script:$PATH
+
 alias ls='ls --color=auto'
 alias ll='ls -lh --color=auto'
 alias tas='tmux attach-session -t'
@@ -306,3 +307,4 @@ n
 # echo "Welcome the Conzxy's Terminal!" | lolcat
 #echo "Pacman Updates: $(pacman -Qu | wc -l)" | lolcat
 #echo "AUR Updates: $(yay -Qau | wc -l)" | lolcat
+PATH=$PATH:/home/conzxy/software/clion-2023.1.5/bin/
