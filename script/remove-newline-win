@@ -1,0 +1,17 @@
+#!python
+
+import sys
+
+def remove_win_newline(src_file, dst_file):
+    with open(src_file, "r", newline='') as src_fp:
+        with open(dst_file, "w", newline='\n') as dst_fp:
+            for line in src_fp:
+                dst_fp.write(line.rstrip("\r\n") + '\n')
+    
+
+if __name__ == "__main__":
+    if len(sys.argv) < 3:
+        print(f"Usage: {sys.argv[0]} source_file_path destination_file_path")
+        exit(0)
+
+    remove_win_newline(sys.argv[1], sys.argv[2])
