@@ -1,0 +1,29 @@
+#!/bin/python
+
+import os
+from os.path import isdir, isfile
+import sys
+
+def make_new_dirs(dir):
+    dirs = os.listdir(dir)
+    for i in range(len(dirs)):
+        dirs[i] = os.path.join(dir, dirs[i])
+    return dirs
+
+def rename_dirs(dirs: list[str], old_equip_id, new_equip_id):
+    for dir in dirs:
+        print(f"dir = {dir}")
+        if isdir(dir):
+            rename_dirs(make_new_dirs(dir), old_equip_id, new_equip_id)
+        elif isfile(dir):
+            os.rename(dir, dir.replace(old_equip_id, new_equip_id))
+
+
+if __name__ == "__main__":
+    if len(sys.argv) < 3:
+        print(f"Usage: {sys.argv[0]} old_equip_id new_equip_id")
+
+    old_equip_id = sys.argv[1]
+    new_equip_id = sys.argv[2]
+
+    rename_dirs(os.listdir('.'), old_equip_id, new_equip_id)
