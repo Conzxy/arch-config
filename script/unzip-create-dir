@@ -8,11 +8,18 @@ if __name__ == "__main__":
         print("Usage: {} *.zip".format(argv[0]))
         exit(0)
 
+    dir_prefix = ""
+    print("len = ", len(argv))
+    if len(argv) > 2:
+        dir_prefix = sys.argv[2]
+
     zip_archive = sys.argv[1]
     extension_pos = zip_archive.rfind(".zip")
     if extension_pos == -1:
         print("ERROR: not a valid zip file")
         exit(0)
     output_dir = zip_archive[:extension_pos]
+    output_dir = os.path.join(dir_prefix, output_dir)
+    print("prefix = ", dir_prefix)
     print("output_dir = ", output_dir)
-    os.system("unzip '{}' -d '{}'".format(zip_archive, output_dir))
+    os.system("unzip -O Shift_JIS -o \"{}\" -d \"{}\"".format(zip_archive, output_dir))

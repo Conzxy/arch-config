@@ -1,0 +1,9 @@
+#!/bin/python
+
+import time
+import os
+
+filename = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+
+os.system(f"wf-recorder -a --audio=alsa_output.pci-0000_0e_00.6.analog-stereo.monitor -o DP-2 -b 60 -f '{filename}.mkv'")
+print(f"Output video: {filename}.mkv")

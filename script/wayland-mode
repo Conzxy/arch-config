@@ -3,7 +3,8 @@
 LOCKER='swaylock -i /home/conzxy/Pictures/shiny-colors/linze/bg/rinze_p_sr5.png -e -f -t && sleep 1'
 
 if [ $1 == "suspend" ]; then
-  bash -c "$LOCKER" && systemctl suspend
+  # bash -c "$LOCKER" && systemctl suspend
+  systemctl suspend
 elif [ $1 == "lock" ]; then
   bash -c "$LOCKER"
 elif [ $1 == "logout" ]; then
