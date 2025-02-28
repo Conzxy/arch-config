@@ -37,5 +37,6 @@ return {
 
         map('n', '<m-g>', '<cmd>Telescope git_files<cr>', opts)
         map('n', '<m-m>', '<cmd>Telescope oldfiles<cr>', opts)
+        map('n', '<m-b>', '<cmd>Telescope buffers<cr>', opts)
     end
 }
