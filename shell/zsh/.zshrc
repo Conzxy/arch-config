@@ -264,8 +264,6 @@ bindkey '^n' nwZle
 alias aliyun-scp='scp -i ~/.ssh/kanon.pem'
 alias sudovi='sudoedit'
 
-eval "$(oh-my-posh --init --shell zsh --config ~/.poshthemes/space.omp.json)"
-
 export EDITOR=vi
 
 # Called before prompt(?)
@@ -291,10 +289,7 @@ alias q='exit'
 alias download-torrent='aria2c --bt-metadata-only=true --bt-save-metadata=true -j$(nproc) -d .'
 alias mmkv-bin='cd ~/mmkv/bin'
 
-source /usr/share/fzf/completion.zsh
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/autojump/autojump.zsh
-n
+neofetch
 # echo ' \e[H\e[2J
 #            \e[1;36m.
 #           \e[1;36m/#\
@@ -308,3 +303,17 @@ n
 #echo "Pacman Updates: $(pacman -Qu | wc -l)" | lolcat
 #echo "AUR Updates: $(yay -Qau | wc -l)" | lolcat
 PATH=$PATH:/home/conzxy/software/clion-2023.1.5/bin/
+
+#source /usr/share/fzf/completion.zsh
+#source /usr/share/fzf/key-bindings.zsh
+#source /usr/share/autojump/autojump.zsh
+PATH=/home/conzxy/script:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/conzxy/.antigen/bundles/sorin-ionescu/prezto:/home/conzxy/.antigen/bundles/Vifon/deer:/home/conzxy/.antigen/bundles/zdharma-continuum/fast-syntax-highlighting:/home/conzxy/.antigen/bundles/willghatch/zsh-cdr:/home/conzxy/workspace/mmkv/bin:/home/conzxy/software:/home/conzxy/software/neovide:/home/conzxy/software/clion-2023.1.5/bin/:/home/conzxy/workspace/arch-config/script
+proxy_on
+
+alias flip-wayfire='cd ~/.config/; cp -f flip_wayfire.ini wayfire.ini'
+alias normal-wayfire='cd ~/.config/; cp -f ~/.config/normal_wayfire.ini wayfire.ini'
+
+fpath+=~/.zfunc; autoload -Uz compinit; compinit
+eval "$(oh-my-posh init zsh -c ~/.poshthemes/space.omp.json)"
+export PATH="$HOME/.local/bin:$PATH"
+alias wf-lock='wf-locker; wayland-mode suspend' 
