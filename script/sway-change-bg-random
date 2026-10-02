@@ -112,7 +112,7 @@ if __name__ == "__main__":
             image_pick_idx = random.randint(0, len(images)-1)
             transition_step = random.randint(1, 255)
             transition_type = transition_types[transition_type_idxs[idx]]
-            bg_cmd = "swww img -o {} {} --transition-duration={} --transition-type={} --transition-step={}".format(
+            bg_cmd = "awww img -n conzxy -o {} {} --transition-duration={} --transition-type={} --transition-step={}".format(
                 output, join(dir_path, images[image_pick_idx]), min(3, period),
                 transition_types[transition_type_idxs[idx]], transition_step)
             transition_type_idxs[idx] = RR_update_idx(transition_type_idxs[idx], len(transition_types))
