@@ -6,58 +6,59 @@
 ## 日用软件归纳
 * shell
     * zsh
-* terminal emulator
+* 终端模拟器（terminal emulator）
     * Alacritty
     * kitty
     * foot
-* note writer
+* 笔记软件（note writer）
     * Obsidian(or Vscode with Markdown plugin)
-* comic viewer
+* 看漫画软件（comic viewer）
     * Neeview（in `bottles`）
-* video viewer
+* 看视频软件（video player）
     * mpv
-* music player
+* 音乐播放器（music player）
     * go-musicfox
     * netease-cloud-music-gtk4
     * ~~splayer-next(deprecated)~~
-* picture viewer
+* 图片查看器（picture viewer）
     * gthumb
     * MView6(✅zip)
     * geeqie(❌zip)
-* file explorer
+* 文件浏览器（file explorer）
     * nemo
-* web browser
+* 网页浏览器（web browser）
     * microsoft edge
     * firefox
-* DE(Desktop)
+* 桌面环境(Desktop Environment)
     * wayfire(+wf-shell)
-* IM
+* 即时通讯软件（IM）
     * linuxqq
-* game
-    * dwproton
+* 游戏（game）
+    * dwproton（Windows）
     * Steam
-* Windows runner：
+* Windows兼容软件（Windows compatibility software）：
     * dwproton
     * wine
     * bottles
-* input method
+* 输入法（input method）
     * fcitx5 + rime（chinese）+ anthy（Japanese）
-* floating terminal
+* 下拉式浮动终端（drop floating-terminal）
     * yakuake
-* editor
+* 编辑器（editor）
     * vim
     * neovim
+    * vscode
 * IDE
     * neovim+plugin
     * vscode+plugin
 * Office(word/ppt/pdf)
     * WPS
     * okular
-* package manager：
+* 包管理器（package manager）：
     * pacman
     * yay
     * flatpak
-* Proxy software
+* 代理软件/梯子（Proxy software）
     * clash verge recv
     * ~~clash for windows(cfw)~~
     * clash(CLI)
