@@ -1,0 +1,17 @@
+return {
+    { "MunifTanjim/nui.nvim", lazy = true },
+    { "nvim-tree/nvim-web-devicons", lazy = true },
+    { "liuchengxu/vista.vim", lazy = true },
+    { 'neoclide/coc.nvim', lazy = true, },
+    "kana/vim-altr",
+    "skywind3000/vim-terminal-help",
+    "jiangmiao/auto-pairs",
+    "tpope/vim-endwise",
+    "tpope/vim-commentary",
+    "tpope/vim-fugitive",
+    "Yggdroot/indentLine",
+    "mhinz/vim-startify",
+    'kien/rainbow_parentheses.vim',
+    'junegunn/vim-easy-align',
+    'vim-scripts/DoxygenToolkit.vim',
+}
