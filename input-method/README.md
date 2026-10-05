@@ -31,5 +31,5 @@ patch:
 有一个[开源项目](https://github.com/fkxxyz/ssfconv)可以将搜狗输入法的皮肤转换成`fcitx5`皮肤文件，然后拷贝到`~/.local/share/fcitx5/themes`即可。
 
 不过这里要注意一点，由于搜狗输入法的样式都是双行的：上面一行是拼音，下面是候选列表。但`fcitx5`默认的方案不是这样的，而是仅有候选列表，这里我们可以设置一下让它显示双行，从而让皮肤显示正常：
-![[Pasted image 20261005210140.png]]
+![xxx](<../assets4obsidian/Pasted image 20261005210140.png>)
 这个`composing text`就会导致单行候选列表样式。其他两个都可以选，效果具体自己看，一般选`Don't show`。
