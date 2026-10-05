@@ -56,9 +56,28 @@ Glib::RefPtr<Gio::Icon> get_from_desktop_app_info(std::string app_id)
 ```
 ### 解决方案
 ```shell
-cp /usr/share/applications/obsidian.desktop ~/.local/share/applications/md.obsidian.Obsidian.desktop
+ln -s /usr/share/applications/obsidian.desktop ~/.local/share/applications/md.obsidian.Obsidian.desktop
 ```
+弊端：会给`wofi`等launcher添加重复的启动项，尽管它们是等价的。
+### 更好的方法
+```shell
+git clone https://github.com/Conzxy/wf-shell.git
+# build 
+...
+```
+拷贝我自己的fork，里面有针对这个进行扩展，在`~/.config/wf-shell.ini`中添加新字段：
+```ini
+[app_id_map_for_desktop]
+md.obsidian.Obsidian = obsidian
+...
+```
+这样也能让`wf-dock`/`wf-panel`正确地拿到对应的desktop app info。
 
+如果上流有什么更新值得同步，也可以更新（可能会有冲突）：
+```shell
+git remote add wf https://github.com/WayfireWM/wf-shell
+git pull wf
+```
 ## wf-locker能不能设置单独的背景图
 目前给出的配置项来看，不能，只能和`wf-background`设置的背景图同步。
 
