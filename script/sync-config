@@ -60,6 +60,9 @@ cp ~/.config/hypr/hyprland.conf $ARCH_CONFIG_PATH/wayland/hyprland
 ## wayfire
 cp ~/.config/wayfire.ini $ARCH_CONFIG_PATH/wayland/wayfire
 
+## wf-shell
+cp ~/.config/wf-shell.ini $ARCH_CONFIG_PATH/wayland/wayfire/wf-shell
+
 # nvim/vim
 cp -r ~/.vim/plugin/ $ARCH_CONFIG_PATH/nvim
 cp -r ~/.vim/discard/ $ARCH_CONFIG_PATH/nvim
