@@ -1,0 +1,1 @@
+`vim`和`nvim`目录均废弃，只用参考`lazy-nvim`

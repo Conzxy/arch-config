@@ -111,7 +111,7 @@ filetype plugin indent on
 " filetype plugin on
 
 " set cscopetag
-set cscopeprg=/usr/local/bin/gtags-cscope
+" set cscopeprg=/usr/local/bin/gtags-cscope
 
 " make alt as meta key
 function! Terminal_MetaMode(mode)
